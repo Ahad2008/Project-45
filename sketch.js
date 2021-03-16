@@ -1,7 +1,7 @@
-var ground, player, playerP, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10;
+var ground, player, playerimg, playerP, P1, P2;
 
 function preload(){
-
+playerimg = loadImage("man.png");
 }
 
 function setup(){
@@ -15,6 +15,8 @@ playerP.shapeColor = "yellow";
 
 player = createSprite(100, 205, 20, 70);
 player.shapeColor = "lime";
+player.addImage("running", playerimg);
+player.scale = 0.3;
 
 P1 = createSprite(1200, )
 }
@@ -28,6 +30,9 @@ if(keyDown("SPACE")){
 }
 player.velocityY = player.velocityY + 1;
 player.collide(playerP);
+player.collide(ground);
+player.depth = player.depth + 1;
+player.collide(P1);
 if(keyDown("RIGHT_ARROW")){
     player.x = player.x + 3;
 }
